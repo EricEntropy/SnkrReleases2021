@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+
+require_relative '../lib/environment.rb'
+
+#Cli.new
+#Snkr.new 
+#Scraper.new
+
+Get_API_Data.printJordans
+
+Snkr.printSnkrs
+
