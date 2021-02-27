@@ -2,7 +2,7 @@ class Get_API_Data
     # def initialize 
     #     puts "in scraper"
     # end 
-
+    
     def self.get_snkrs_brands
         brands_URL = "https://api.thesneakerdatabase.com/v1/brands"
         uri = URI.parse(brands_URL)
@@ -10,53 +10,32 @@ class Get_API_Data
         response.body
     end
 
-    def self.print_brands 
-        brandsArray = []
-        #my brands since i will only be using 5 and need for comparing
-        myBrands = ["ADIDAS", "JORDAN", "NIKE", "VANS", "YEEZY"]
-
-        #put values of json into an array
-        brands = JSON.parse(self.get_snkrs_brands)
-        brands.each do |key, value|
-            brandsArray << value
-        end 
-
-        #flatten the array to be one dimensional and sort alphabetically
-        finalArray = brandsArray.flatten.sort
-        x = 1
-        finalArray.each do |brand|
-            if myBrands.include?(brand)
-                puts "#{x}. #{brand.capitalize}"
-                x += 1
-            end 
-        end 
-    end 
-
-    def self.getJordans
-        jordansURL = "https://api.thesneakerdatabase.com/v1/sneakers?limit=25&brand=Jordan&gender=men&releaseYear=2021"
-        uri = URI.parse(jordansURL)
-        response = Net::HTTP.get_response(uri)
-        response.body
-    end 
-
-    def self.setJordans
+    def self.set_by_brand(brand_toSet)
         attributes = []
-        jordanData = JSON.parse(self.getJordans)
+        brand_Data = JSON.parse(self.get_by_brand(brand_toSet))
         #only get the results hash 
-        jordanData.each do |key, value|
+        brand_Data.each do |key, value|
             if key == "results"
                 attributes << value
             end 
         end 
         #assign attributes to snkrs object 
         attributes[0].each do |value|
-            jordan_obj = Snkr.new
-            jordan_obj.name = value["title"]
-            jordan_obj.brand = value["brand"]
-            jordan_obj.releaseDate = value["releaseDate"]
-            jordan_obj.price = value["retailPrice"]
-            jordan_obj.type = value["shoe"]
-            jordan_obj.gender = value["gender"]
+            snkrs_obj = Snkr.new
+            snkrs_obj.name = value["title"]
+            snkrs_obj.brand = value["brand"]
+            snkrs_obj.releaseDate = value["releaseDate"]
+            snkrs_obj.price = value["retailPrice"]
+            snkrs_obj.type = value["shoe"]
+            snkrs_obj.colorway = value["colorway"]
         end 
     end 
+
+    def self.get_by_brand(brand_toGet)
+        snkrs_URL = "https://api.thesneakerdatabase.com/v1/sneakers?limit=15&brand=#{brand_toGet}&gender=men&releaseYear=2021"
+        uri = URI.parse(snkrs_URL)
+        response = Net::HTTP.get_response(uri)
+        response.body
+    end 
+
 end 
