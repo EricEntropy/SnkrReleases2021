@@ -20,12 +20,23 @@ class Snkr
         @@allSnkrs << self
     end 
 
-    def self.printSnkrs
-        @@allSnkrs.each.with_index(1) do |value, index|
-            if value.gender == "men"
-                puts "#{index}.  #{value.name}"
+    def self.printSnkrs(brand)
+        x = 1
+        @@allSnkrs.each do |value|
+            if value.brand == brand2
+                puts "#{x}.  #{value.name}"
+                x += 1
             end
         end 
     end 
+
+    def self.find_by_brand(brandInx)
+        myBrands = ["Adidas", "Jordan", "Nike", "Vans", "Yeezy"]
+        toPrint = myBrands[brandInx]
+        self.printSnkrs(toPrint)
+    end 
+
+
+
 
 end 

@@ -13,7 +13,7 @@ class Get_API_Data
     def self.print_brands 
         brandsArray = []
         #my brands since i will only be using 5 and need for comparing
-        myBrands = ["JORDAN", "NIKE", "VANS", "YEEZY", "ADIDAS"]
+        myBrands = ["ADIDAS", "JORDAN", "NIKE", "VANS", "YEEZY"]
 
         #put values of json into an array
         brands = JSON.parse(self.get_snkrs_brands)
@@ -24,7 +24,7 @@ class Get_API_Data
         #flatten the array to be one dimensional and sort alphabetically
         finalArray = brandsArray.flatten.sort
         x = 1
-        finalArray.each_with_index do |brand|
+        finalArray.each do |brand|
             if myBrands.include?(brand)
                 puts "#{x}. #{brand.capitalize}"
                 x += 1
@@ -33,13 +33,13 @@ class Get_API_Data
     end 
 
     def self.getJordans
-        jordansURL = "https://api.thesneakerdatabase.com/v1/sneakers?limit=20&brand=Jordan&releaseYear=2021"
+        jordansURL = "https://api.thesneakerdatabase.com/v1/sneakers?limit=25&brand=Jordan&gender=men&releaseYear=2021"
         uri = URI.parse(jordansURL)
         response = Net::HTTP.get_response(uri)
         response.body
     end 
 
-    def self.printJordans
+    def self.setJordans
         attributes = []
         jordanData = JSON.parse(self.getJordans)
         #only get the results hash 

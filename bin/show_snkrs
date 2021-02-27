@@ -6,7 +6,5 @@ require_relative '../lib/environment.rb'
 #Snkr.new 
 #Scraper.new
 
-Get_API_Data.printJordans
-
-Snkr.printSnkrs
+CLI.begin
 
