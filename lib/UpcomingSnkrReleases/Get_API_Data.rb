@@ -28,6 +28,7 @@ class Get_API_Data
             snkrs_obj.price = value["retailPrice"]
             snkrs_obj.type = value["shoe"]
             snkrs_obj.colorway = value["colorway"]
+            snkrs_obj.imageURL = value["media"]["imageUrl"]
         end 
     end 
 

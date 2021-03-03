@@ -1,5 +1,5 @@
 class Snkr
-    attr_accessor :brand, :name, :releaseDate, :price, :type, :colorway
+    attr_accessor :brand, :name, :releaseDate, :price, :type, :colorway, :imageURL
     @@allSnkrs = []
     @@finalArray = []
 
@@ -10,6 +10,7 @@ class Snkr
         @price = price
         @type = type
         @colorway = colorway
+        @imageURL = imageURL
         save
     end 
 
@@ -54,6 +55,7 @@ class Snkr
             puts "Price(USD):   N/A"
         else puts "Price(USD):   $#{@@allSnkrs[input].price}"
         end 
+        puts "Image URL:    #{@@allSnkrs[input].imageURL}"
     end 
 
     def self.find_by_Brand(brandInx)
