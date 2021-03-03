@@ -1,9 +1,5 @@
 # UpcomingSnkrReleases
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/UpcomingSnkrReleases`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
-
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -22,7 +18,15 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+This gem was designed with simplicity in mind. Usually, sneaker wedbsites are flooded with ads and riddled with click-bait articles that have nothing to do with sneakers. This gem provides a simple way to view upcoming sneakers releases for 2021.
+
+In order to get started, lauch the CLI application thorugh bin/show_snkrs. 
+
+This will launch the "Brands Menu."
+In this menu, several available brands will be listed and one must be selected to get sneaker data from that specified brand.
+
+After selecting a brand, the "Sneakers Menu" will launch. 
+This will list several(up to 15 items) sneakers relased and to be released in 20201. Once the list is printed, any item can be selected through its index number. This will dislay more detailed information about a specific sneaker, such as brand, name, release date, price, type, and colorway.
 
 ## Development
 

@@ -13,10 +13,6 @@ class Snkr
         save
     end 
 
-    def self.chosen_Snkrs
-        @@chosen_Snkrs
-    end 
-
     def self.all
         @@allSnkrs
     end 
@@ -49,7 +45,6 @@ class Snkr
     end 
 
     def self.print_Snkr_info(input)
-        puts "\nHere is some information about your selection:"
         puts "Name:         #{@@allSnkrs[input].name.capitalize}"
         puts "Brand:        #{@@allSnkrs[input].brand}"
         puts "Colorway:     #{@@allSnkrs[input].colorway}"
@@ -66,6 +61,7 @@ class Snkr
         Get_API_Data.set_by_brand(brand_toSet)
         puts "\nYou selected: #{brand_toSet.capitalize}!"
         puts "Here is a list of upcoming #{brand_toSet.capitalize} Snkrs:"
+        puts ""
         self.printSnkrs
     end  
 
