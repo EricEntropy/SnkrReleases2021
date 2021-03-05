@@ -1,8 +1,4 @@
 class Get_API_Data
-    # def initialize 
-    #     puts "in scraper"
-    # end 
-    
     def self.get_snkrs_brands
         brands_URL = "https://api.thesneakerdatabase.com/v1/brands"
         uri = URI.parse(brands_URL)

@@ -1,8 +1,4 @@
 class CLI
-    # def initialize 
-    #     puts "in cli"
-    # end 
-
     def self.begin
         welcomeMSG
         self.brands_menu 
@@ -40,6 +36,7 @@ class CLI
             if input == "x"
                 break
             elsif input == "m"
+                Snkr.all.clear
                 self.brands_menu 
             elsif input.to_i > Snkr.all.length || input.to_i < 1
                 puts "Error, out of bounds."

@@ -2,10 +2,4 @@
 
 require_relative '../lib/environment.rb'
 
-#Cli.new
-#Snkr.new 
-#Scraper.new
-
 CLI.begin
-
-
