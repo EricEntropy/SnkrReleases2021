@@ -1,5 +1,6 @@
 class CLI
     def self.begin
+        system "clear"
         welcomeMSG
         self.brands_menu 
         self.snkrs_menu
