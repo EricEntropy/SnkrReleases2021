@@ -5,6 +5,13 @@ class Get_API_Data
         response = Net::HTTP.get_response(uri)
         response.body
     end
+    
+    def self.get_by_brand(brand_toGet)
+        snkrs_URL = "https://api.thesneakerdatabase.com/v1/sneakers?limit=15&brand=#{brand_toGet}&gender=men&releaseYear=2021"
+        uri = URI.parse(snkrs_URL)
+        response = Net::HTTP.get_response(uri)
+        response.body
+    end 
 
     def self.set_by_brand(brand_toSet)
         attributes = []
@@ -27,12 +34,4 @@ class Get_API_Data
             snkrs_obj.imageURL = value["media"]["imageUrl"]
         end 
     end 
-
-    def self.get_by_brand(brand_toGet)
-        snkrs_URL = "https://api.thesneakerdatabase.com/v1/sneakers?limit=15&brand=#{brand_toGet}&gender=men&releaseYear=2021"
-        uri = URI.parse(snkrs_URL)
-        response = Net::HTTP.get_response(uri)
-        response.body
-    end 
-
 end 

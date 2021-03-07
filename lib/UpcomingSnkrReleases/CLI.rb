@@ -19,6 +19,7 @@ class CLI
             puts "\nSelect the number for a brand you're interested in or x to exit."
             input = gets.strip
             if input == "x"
+                system "clear"
                 exit
             elsif input.to_i > Snkr.brandsArray.length || input.to_i < 1
                 puts "Error, out of bounds."
@@ -35,6 +36,7 @@ class CLI
             puts "\nSelect the number to display Snkrs information. Type m to show brands. Type x to exit"
             input = gets.strip
             if input == "x"
+                system "clear"
                 break
             elsif input == "m"
                 Snkr.all.clear

@@ -18,6 +18,10 @@ class Snkr
         @@allSnkrs
     end 
 
+    def self.brandsArray
+        @@finalArray
+    end 
+
     def save 
         @@allSnkrs << self
     end 
@@ -41,16 +45,16 @@ class Snkr
 
     def self.printSnkrs
         @@allSnkrs.each.with_index(1) do |value, index|
-                puts "#{index}.  #{value.name}"
+                puts "#{index}.  #{value.name.capitalize}"
         end 
     end 
 
     def self.print_Snkr_info(input)
         puts "Name:         #{@@allSnkrs[input].name.capitalize}"
-        puts "Brand:        #{@@allSnkrs[input].brand}"
-        puts "Colorway:     #{@@allSnkrs[input].colorway}"
-        puts "Release Date: #{@@allSnkrs[input].releaseDate}"
-        puts "Silhouette:   #{@@allSnkrs[input].type}"
+        puts "Brand:        #{@@allSnkrs[input].brand.capitalize}"
+        puts "Colorway:     #{@@allSnkrs[input].colorway.capitalize}"
+        puts "Release Date: #{@@allSnkrs[input].releaseDate.capitalize}"
+        puts "Silhouette:   #{@@allSnkrs[input].type.capitalize}"
         if @@allSnkrs[input].price == 0
             puts "Price(USD):   N/A"
         else puts "Price(USD):   $#{@@allSnkrs[input].price}"
@@ -66,8 +70,4 @@ class Snkr
         puts ""
         self.printSnkrs
     end  
-
-    def self.brandsArray
-        @@finalArray
-    end 
 end 
